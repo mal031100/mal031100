@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lịch thi đấu</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		tr, th, td {
+			border: 1px solid black;
+			padding: 20px;
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<!-- <div class="container">
+		<div class="row">
+			<div class="col-sm-12"> -->
+				<li class="navbar-brand">
+                      <a href=""><img src="https://upload.wikimedia.org/wikipedia/vi/9/90/Logo_LS_V.League_2_-_2021.png" alt="" width="100" height="80"></a>
+				      </li>
+				      <a class="navbar-brand" href="trangchu">Trang chủ</a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+				<a class="navbar-brand" href="doibong">Đội bóng</a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+				  <a class="navbar-brand" href="lichthidau">Lịch thi đấu</a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+				  <a class="navbar-brand" href="trongtai">Trọng Tài</a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+				  <a class="navbar-brand" href="nhataitro">Nhà tài trợ</a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+				  </nav>
+
+	<h3 align="center">Danh sách các các trận đấu trong khuôn khổ mùa giải 2021</h3>
+	<p align="center"><u><a href="addLichthidau">Thêm mới</a></u>
+	<u><a href="trangchu">Return</a></u>
+	</p>
+	<div class="container">
+		<table align="center" >
+			<tr>
+				<th> STT </th>
+				<th> Tên đội A </th>
+				<th> Ngày thi đấu </th>
+				<th> Tên đội B </th>
+				<th> Sửa </th>
+				<th> Xóa </th>
+			</tr>
+			<?php $STT = 1 ?>
+			<?php foreach ($info as $value): ?>
+				<tr>
+				<td><?= $STT++ ?></td>
+				<td><?= $value['doiA'] ?></td>
+				<td><?= $value['ngaythidau'] ?></td>
+				<td><?= $value['doiB'] ?></td>
+				<td><a href="suaLichthidau/<?= $value['id'] ?>">Sửa</a></td>
+				<td><a href="deleteLichthidau/<?= $value['id'] ?>">Xóa</a></td>
+				<!-- <td class="delete"></td> -->
+			</tr>
+			<?php endforeach ?>
+		</table>
+	</div>
+	<!-- <script>
+		$(document).ready(function() {
+			$('.delete').click(function() {
+				if (confirm('Bạn chắc chắn muốn xóa ngày này')) {
+					window.location.href = "<?= base_url() ?>login/deleteLichthidau/<?= $value['id'] ?>";
+				}
+			});
+		});
+	</script> -->
+</body>
+</html>
